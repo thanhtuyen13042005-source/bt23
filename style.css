@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+.main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.student-info {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.nav-links {
+    margin-bottom: 20px;
+}
+
+.btn-link {
+    display: inline-block;
+    background: #28a745;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-link:hover {
+    background: #218838;
+}
+
+.hint {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* --- KHU VỰC 3D ĐÈN KÉO QUÂN --- */
+.scene {
+    width: 250px;
+    height: 320px;
+    margin: 40px auto;
+    perspective: 1000px; /* Tạo chiều sâu 3D */
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCarousel 15s linear infinite; /* Quay vòng tròn trong 15 giây */
+}
+
+/* Mỗi mặt của đèn chứa hình ảnh */
+.carousel-item {
+    position: absolute;
+    width: 180px;
+    height: 240px;
+    left: 35px;
+    top: 40px;
+    transform-origin: center center;
+    /* Tính toán góc quay cho 6 mặt hình ảnh (360 độ / 6 = 60 độ, bán kính dịch chuyển Z là 260px) */
+    transform: rotateY(calc((var(--i) - 1) * 60deg)) translateZ(240px);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    background: #fff;
+    border: 3px solid #007bff;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Keyframes cho hiệu ứng quay vòng tròn */
+@keyframes rotateCarousel {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}

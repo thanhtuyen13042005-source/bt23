@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập 23 - Đèn Kéo Quân & Trang Chủ</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS để khung chứa ảnh hiển thị gọn gàng, đẹp mắt */
+        .result-box {
+            background: #2d1b36;
+            color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px auto;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: none; /* Mặc định ẩn, khi bấm nút Kết quả Bài 22 sẽ hiện ra */
+        }
+        .result-box h3 {
+            color: #ffb74d;
+            margin-bottom: 15px;
+        }
+        /* Style cho ảnh chèn vào */
+        .result-box img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 2px solid #ffb74d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <h1>Bài Tập 23 - Hiệu Ứng JavaScript (Đèn Kéo Quân)</h1>
+        <p class="student-info">Mã số sinh viên: <strong>231A010780</strong> - Họ và tên: <strong>Nguyen Thanh Tuyen</strong></p>
+
+        <!-- Menu link theo yêu cầu bài 23 -->
+        <div class="nav-links">
+            <a href="#den-keo-quan" class="btn-link">Xem Đèn Kéo Quân Bên Dưới</a>
+            <a href="javascript:void(0);" class="btn-link" onclick="toggleResult22()">Kết quả Bài tập 22</a>
+        </div>
+
+        <!-- Khung chứa ảnh kết quả Bài 22 -->
+        <div id="result22" class="result-box">
+            <h3>Hình ảnh kết quả Bài tập 22</h3>
+            <!-- THẺ CHÈN ẢNH: Đổi 'images/bait22.jpg' thành tên file ảnh thực tế của bạn -->
+            <img src="images/bait22.jpg" alt="Kết quả Bài 22">
+        </div>
+
+        <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd;">
+
+        <h2 id="den-keo-quan">Hiệu Ứng Đèn Kéo Quân 3D (6 Mặt Ảnh)</h2>
+        <p class="hint">Đưa chuột vào đèn để dừng lại - Rê chuột ra để đèn quay tiếp.</p>
+
+        <!-- KHU VỰC 3D ĐÈN KÉO QUÂN -->
+        <div class="scene">
+            <div class="carousel" id="carousel">
+                <div class="carousel-item" style="--i: 1;"><img src="images/anh01.jpg" alt="Ảnh 1"></div>
+                <div class="carousel-item" style="--i: 2;"><img src="images/anh02.jpg" alt="Ảnh 2"></div>
+                <div class="carousel-item" style="--i: 3;"><img src="images/anh03.jpg" alt="Ảnh 3"></div>
+                <div class="carousel-item" style="--i: 4;"><img src="images/anh04.jpg" alt="Ảnh 4"></div>
+                <div class="carousel-item" style="--i: 5;"><img src="images/anh05.jpg" alt="Ảnh 5"></div>
+                <div class="carousel-item" style="--i: 6;"><img src="images/anh06.jpg" alt="Ảnh 6"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Hàm ẩn/hiện khung ảnh kết quả Bài 22 khi bấm nút
+        function toggleResult22() {
+            const box = document.getElementById('result22');
+            if (box.style.display === 'block') {
+                box.style.display = 'none';
+            } else {
+                box.style.display = 'block';
+            }
+        }
+
+        // Lấy phần tử đèn kéo quân
+        const carousel = document.getElementById('carousel');
+
+        // Khi đưa chuột vào -> Dừng hiệu ứng quay
+        carousel.addEventListener('mouseenter', () => {
+            carousel.style.animationPlayState = 'paused';
+        });
+
+        // Khi rê chuột ra -> Tiếp tục quay
+        carousel.addEventListener('mouseleave', () => {
+            carousel.style.animationPlayState = 'running';
+        });
+    </script>
+</body>
+</html>
